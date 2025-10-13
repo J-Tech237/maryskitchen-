@@ -28,6 +28,20 @@ export function Header() {
           </div>
           <span className="font-bold text-xl">Mary's Kitchen</span>
         </Link>
+        
+        {/* Navigation Links */}
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className="text-sm font-medium hover:text-orange-600 transition-colors">
+            {t("Menu", "Menu")}
+          </Link>
+          <Link href="/about" className="text-sm font-medium hover:text-orange-600 transition-colors">
+            {t("About", "À propos")}
+          </Link>
+          <Link href="/contact" className="text-sm font-medium hover:text-orange-600 transition-colors">
+            {t("Contact", "Contact")}
+          </Link>
+        </nav>
+        
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" onClick={() => setLanguage(language === "en" ? "fr" : "en")}>
             <Languages className="h-5 w-5" />

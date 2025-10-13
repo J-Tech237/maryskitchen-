@@ -117,7 +117,7 @@ export default function AdminMenuPage() {
           </Select>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {filteredItems.map((item) => (
             <Card key={item.id} className="overflow-hidden">
               <div className="relative aspect-square">
@@ -126,29 +126,29 @@ export default function AdminMenuPage() {
                   {item.is_available ? t("Available", "Disponible") : t("Unavailable", "Indisponible")}
                 </Badge>
               </div>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{language === "en" ? item.name_en : item.name_fr}</h3>
-                <p className="text-2xl font-bold text-orange-600 mb-4">
+              <CardContent className="p-3">
+                <h3 className="font-semibold text-base mb-2">{language === "en" ? item.name_en : item.name_fr}</h3>
+                <p className="text-xl font-bold text-orange-600 mb-3">
                   {item.price.toLocaleString()} {t("CFA", "FCFA")}
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Switch checked={item.is_available} onCheckedChange={() => handleToggleAvailability(item.id)} />
-                    <span className="text-sm">{t("Available", "Disponible")}</span>
+                    <span className="text-xs">{t("Available", "Disponible")}</span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1">
                     <Button
                       variant="outline"
-                      size="icon"
+                      size="sm"
                       onClick={() => {
                         setEditingItem(item)
                         setIsDialogOpen(true)
                       }}
                     >
-                      <Edit className="h-4 w-4" />
+                      <Edit className="h-3 w-3" />
                     </Button>
-                    <Button variant="outline" size="icon" onClick={() => handleDeleteItem(item.id)}>
-                      <Trash2 className="h-4 w-4" />
+                    <Button variant="outline" size="sm" onClick={() => handleDeleteItem(item.id)}>
+                      <Trash2 className="h-3 w-3" />
                     </Button>
                   </div>
                 </div>

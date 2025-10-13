@@ -26,34 +26,35 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
         <Image src={item.image_url || "/placeholder.svg"} alt={name} fill className="object-cover" />
         {!item.is_available && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-            <Badge variant="destructive" className="text-lg">
+            <Badge variant="destructive" className="text-sm">
               {t("Unavailable", "Indisponible")}
             </Badge>
           </div>
         )}
       </div>
-      <CardContent className="p-4">
-        <h3 className="font-semibold text-lg mb-2 text-balance">{name}</h3>
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{description}</p>
+      <CardContent className="p-3">
+        <h3 className="font-semibold text-base mb-2 text-balance">{name}</h3>
+        <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{description}</p>
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-orange-600">
+          <span className="text-lg font-bold text-orange-600">
             {item.price.toLocaleString()} {t("CFA", "FCFA")}
           </span>
-          <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4" />
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Clock className="h-3 w-3" />
             <span>
               {item.preparation_time} {t("min", "min")}
             </span>
           </div>
         </div>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-3 pt-0">
         <Button
           onClick={() => addToCart(item)}
           disabled={!item.is_available}
-          className="w-full bg-orange-600 hover:bg-orange-700"
+          className="w-full bg-orange-600 hover:bg-orange-700 text-sm"
+          size="sm"
         >
-          <Plus className="h-4 w-4 mr-2" />
+          <Plus className="h-3 w-3 mr-2" />
           {t("Add to Cart", "Ajouter au Panier")}
         </Button>
       </CardFooter>
